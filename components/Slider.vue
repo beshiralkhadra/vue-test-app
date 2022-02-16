@@ -1,10 +1,23 @@
 <template>
-  <v-carousel hide-delimiters>
+  <v-carousel hide-delimiters cycle   >
     <v-carousel-item
       v-for="(item,i) in items"
       :key="i"
       :src="item.src"
-    ></v-carousel-item>
+ style="opacity: .7;"
+    >
+       <v-row
+          class="fill-height"
+          align="center"
+          justify="center"
+          
+        >
+          <div class="slider-content-details">
+          <h1 style="color:black">Explore More</h1>
+          <button class="slider-btn" @click="btnClicked">Explore Now</button>
+          </div>
+        </v-row>
+    </v-carousel-item>
   </v-carousel>
 </template>
 
@@ -28,5 +41,17 @@
         ],
       }
     },
+    methods: {
+      btnClicked() {
+        this.$router.push ('/seller')
+      }
+    }
   }
 </script>
+<style >
+ .slider-content-details .slider-btn{
+  background: #00d9a5 !important;
+  padding: .7em 1em;
+  border-radius: 10px;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-<Navbar />
+
 <Slider />
 <h1 class="header-doctors">OUR DOCTORS</h1>
 <div class="doctorsCards d-flex" >
@@ -10,8 +10,9 @@
   :fullInfo="infos"
   />
 </div>
-<Form />
-<Footer />
+<h1 class="header-doctors">Appointments</h1>
+<Form/>
+
   </div>
 </template>
 
@@ -34,7 +35,7 @@ import Footer from "../components/footer/Footer.vue";
 }
 </script>
 
-<style  scoped>
+<style  >
 .header-doctors{
   text-align: center;
   font-weight: bold;
@@ -46,5 +47,11 @@ import Footer from "../components/footer/Footer.vue";
   align-items: center;
   margin: 2em auto;
   padding-bottom: 0.5em;
+}
+@media screen and (max-width: 820px){
+  .doctorsCards{
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

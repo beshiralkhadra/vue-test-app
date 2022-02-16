@@ -1,12 +1,10 @@
 <template>
   <v-app >
-  
-  
-    <v-main>
-      <v-container >
+
+      <Navbar/>
         <Nuxt />
-      </v-container>
-    </v-main>
+<Footer />
+  
     <!-- <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-item @click.native="right = !right">
@@ -24,30 +22,33 @@
 </template>
 
 <script>
+import Navbar from "../components/header/Navbar.vue"
+import Footer from "../components/footer/Footer.vue";
 export default {
-  name: 'DefaultLayout',
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
-    }
-  },
+    name: "DefaultLayout",
+    data() {
+        return {
+            clipped: false,
+            drawer: false,
+            fixed: false,
+            items: [
+                {
+                    icon: "mdi-apps",
+                    title: "Welcome",
+                    to: "/",
+                },
+                {
+                    icon: "mdi-chart-bubble",
+                    title: "Inspire",
+                    to: "/inspire",
+                },
+            ],
+            miniVariant: false,
+            right: true,
+            rightDrawer: false,
+            title: "Vuetify.js",
+        };
+    },
+    components: { Navbar, Footer }
 }
 </script>

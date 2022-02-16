@@ -1,5 +1,5 @@
 <template>
-<v-container  fluid class="fluid ">
+<v-container  fluid class="fluid " style="padding: 0;">
 <v-app-bar
   elevation="1"
 

@@ -1,22 +1,22 @@
 <template>
-<v-container  fluid class="fluid " cols="6">
+<v-container  fluid class="fluid d-flex justify-center mt-12" cols="6" >
 
 
 <v-cols cols="10" lg="10" sm="8" md="8" style="height: 100vh">
   <v-form
     ref="form"
     lazy-validation
-    class="elevation-12 pa-8 mt-12"
+    class="elevation-12 pa-8  "
   
   >
 
   <h1 class="text-center">Make Appointment</h1>
-  <div class="d-inline">
+  <div class="wrap-inputs">
     
   <v-col
           cols="12"
-          sm="6"
-          md="6"
+            sm="6"
+            md="6"
          
         >
     <v-text-field
@@ -47,8 +47,12 @@
     ></v-text-field>
 </v-col>
   </div>
+  <v-select v-model="selected" :items="items" label="choose doctor..." outlined>
+</v-select>
+  <v-select v-model="selected" :items="times" label="choose time..." outlined>
+</v-select>
     <v-text-field
-      v-model="number"
+      v-model.number="number"
       type="tel"
      name="number"
       label="number"
@@ -85,12 +89,7 @@
         data(){
           return {
 
-              name: '',
-          
-                nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-      ],
+     
               email: '',
                emailRules: [
         v => !!v || 'E-mail is required',
@@ -101,12 +100,9 @@
       v => !!v || 'Password is required',
       v => /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(v) || 'Password must contain at least lowercase letter, one number, a special character and one uppercase letter',
   ],
-              repeatpass: '',
-                     repeatPassRules: [
-      v => !!v || 'Password is required',
-      v => v == this.password|| 'Password is required',
-   
-  ],
+  items: ['Dr.Alexa','Dr.john','Dr.Rebecca'],
+  times: ['08:30AM - 09:00AM','12:00PM - 12:30PM','14:30PM - 15:00PM'],
+             
  
             
         }
@@ -123,16 +119,13 @@
     }
 </script>
 <style scoped>
-/* .beshir {
-  height: 100vh;
-
-} */
-
-/* .v-input {
-  flex: 0;
-} */
-/* .container {
-  margin: 0!important;
-  padding: 0 !important;
-} */
+.wrap-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 768px){
+  .wrap-inputs {
+    flex-direction:column;
+  }
+}
 </style>
